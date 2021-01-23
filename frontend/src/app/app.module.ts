@@ -9,6 +9,13 @@ import {MoviesApiService} from './movies-api.service';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+
+import {MatDividerModule} from '@angular/material/divider';
+
+
+
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -20,8 +27,10 @@ import {MatButtonModule} from '@angular/material/button';
     HttpClientModule,
     MatToolbarModule,
     MatButtonModule,
+    MatCardModule,
+    MatDividerModule
   ],
-  providers: [MoviesApiService],
+  providers: [MoviesApiService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

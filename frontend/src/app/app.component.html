@@ -2,25 +2,49 @@
   <mat-toolbar-row>
     <span>Capstone Agency</span>
     <span class="example-spacer"></span>
-    <button mat-button (click)="signIn()" *ngIf="!authenticated">
+    <button mat-button (click)="loginAuth()" *ngIf="!auth.token">
       Sign In
     </button>
-    <button mat-button (click)="signOut()" *ngIf="authenticated">
+    <button mat-button (click)="auth.logout()" *ngIf="auth.token">
       Sign Out
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
-<div>
-  <h2>Movies:</h2>
-  <ul>
-    <li *ngFor="let movie of moviesList">
-      {{ movie.title }} | {{ movie.release_date }}
-    </li>
-  </ul>
+<div *ngIf="!auth.token">
+  <h1 style="text-align: center" class="push-down">
+    Welcome to Capstone Agency! Please Login to enter our Application!
+  </h1>
 </div>
-<div>
-  <h2>Actors:</h2>
-  <ul>
-    <li *ngFor="let actor of actorsList">{{ actor.name }} | {{ actor.age }}</li>
-  </ul>
+<div *ngIf="auth.token">
+  <h1>Movies:</h1>
+  <div class="movies">
+    <mat-card
+      class="example-card"
+      *ngFor="let movie of moviesList"
+      class="mat-elevation-z5"
+    >
+      <mat-card-content>
+        <mat-card-title>{{ movie.title }}</mat-card-title>
+        <mat-card-subtitle>{{ movie.release_date }}</mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <mat-divider class="push-down"></mat-divider>
+  <h1>Actors:</h1>
+  <div class="movies">
+    <mat-card
+      class="example-card"
+      *ngFor="let actor of actorsList"
+      class="mat-elevation-z5"
+    >
+      <mat-card-content>
+        <mat-card-title>{{ actor.name }}</mat-card-title>
+        <mat-card-subtitle>Age: {{ actor.age }}</mat-card-subtitle>
+        <p>Gender: {{ actor.gender }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <mat-divider class="push-down"></mat-divider>
+  <label>Your Active JWT:</label>
+  <div>{{ auth.activeJWT() }}</div>
 </div>

@@ -114,7 +114,7 @@ def create_app(test_config=None):
     # GET ALL ACTORS
     @app.route('/actors')
     @requires_auth('get:actors')
-    def get_actors():
+    def get_actors(payload):
         actors = Actor.query.all()
         
         return jsonify({
