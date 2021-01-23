@@ -1,12 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {Subscription} from 'rxjs';
-import {MoviesApiService} from './movies-api.service';
-import {Movie} from './movie.model';
-import {Actor} from './actor.model';
-import { DOCUMENT } from '@angular/common';
-import { AuthService } from './auth.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import {MoviesApiService} from './services/movies-api.service';
+import {Movie} from './models/movie.model';
+import {Actor} from './models/actor.model';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',

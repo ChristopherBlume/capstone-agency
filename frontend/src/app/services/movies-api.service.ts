@@ -2,9 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { Observable, throwError} from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import {API_URL} from '../environments/environment';
-import {Movie} from '../app/movie.model';
-import {Actor} from '../app/actor.model';
+import {API_URL} from '../../environments/environment';
+import {Movie} from '../models/movie.model';
+import {Actor} from '../models/actor.model';
 import { AuthService } from './auth.service';
 
 @Injectable()
