@@ -1,7 +1,7 @@
 import os
 from flask import Flask, json, jsonify, abort, request
-from backend.models import setup_db, Movie, Actor
-from backend.auth import AuthError, requires_auth
+from models import setup_db, Movie, Actor
+from auth import AuthError, requires_auth
 from flask_cors import CORS
 
 def create_app(test_config=None):
@@ -43,7 +43,7 @@ def create_app(test_config=None):
     # POST A NEW MOVIE
     @app.route('/movies', methods=['POST'])
     @requires_auth('add:movies')
-    def add_movies():
+    def add_movies(payload):
         data = request.get_json()
 
         title = data.get('title', '')
@@ -144,10 +144,10 @@ def create_app(test_config=None):
             print(e)
             abort(422)
 
-    # DELETE AN ACTORS
+    # DELETE AN ACTOR
     @app.route('/actors/<int:actor_id>', methods=["DELETE"])
     @requires_auth('delete:actor')
-    def delete_actor(actor_id):
+    def delete_actor(payload, actor_id):
         try: 
             actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
 
@@ -167,7 +167,7 @@ def create_app(test_config=None):
     # UPDATE AN ACTOR
     @app.route('/actors/<int:actor_id>', methods=['PATCH'])
     @requires_auth('patch:actor')
-    def update_actor(actor_id):
+    def update_actor(payload, actor_id):
         if request.data:
             new_actor_data = json.loads(request.data)
             actor = Actor.query.filter(Actor.id == actor_id).one_or_none()
@@ -176,7 +176,7 @@ def create_app(test_config=None):
             if not ('name' or 'age' or 'gender' in new_actor_data):
                 abort(400)
             if 'name' in new_actor_data:
-                setattr(actor, 'name', new_actor_data['title'])
+                setattr(actor, 'name', new_actor_data['name'])
             if 'age' in new_actor_data:
                 setattr(actor, 'age', new_actor_data['age'])
             if 'gender' in new_actor_data:
