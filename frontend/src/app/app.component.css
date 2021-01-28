@@ -1,17 +1,21 @@
+.container {
+  margin: 1rem;
+  padding: 1rem;
+  max-width: 1700px;
+}
+
 .example-spacer {
   flex: 1 1 auto;
+}
+
+.new {
+  margin: 1rem;
 }
 
 div.movies {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
-}
-
-button.new-exam {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
 }
 
 .push-down {

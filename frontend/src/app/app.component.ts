@@ -29,7 +29,6 @@ export class AppComponent implements OnInit, OnDestroy{
 
   loginAuth() {
     this.loginURL = this.auth.build_login_link();
-    console.log(this.loginURL)
     window.location.href=this.loginURL;
   }
 

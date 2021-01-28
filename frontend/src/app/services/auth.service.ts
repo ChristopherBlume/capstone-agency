@@ -71,7 +71,7 @@ export class AuthService {
   logout() {
     this.token = '';
     this.payload = null;
-    this.set_jwt();
+    // localStorage.setItem(JWTS_LOCAL_KEY, this.token)
   }
 
   can(permission: string) {
