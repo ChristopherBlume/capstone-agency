@@ -67,7 +67,7 @@ def create_app(test_config=None):
     # DELETE A MOVIE
     @app.route('/movies/<int:movie_id>', methods=["DELETE"])
     @requires_auth('delete:movie')
-    def delete_movie(movie_id):
+    def delete_movie(payload, movie_id):
         try: 
             movie = Movie.query.filter(Movie.id == movie_id).one_or_none()
 
@@ -87,7 +87,7 @@ def create_app(test_config=None):
     # UPDATE A MOVIE
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])
     @requires_auth('patch:movie')
-    def update_movie(movie_id):
+    def update_movie(payload, movie_id):
         if request.data:
             new_movie_data = json.loads(request.data)
             movie = Movie.query.filter(Movie.id == movie_id).one_or_none()
