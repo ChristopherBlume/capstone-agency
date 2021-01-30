@@ -32,8 +32,23 @@
         </mat-card-content>
       </mat-card>
     </div>
-    <button mat-fab color="primary" *ngIf="auth.token" class="new">
-      <i class="material-icons">note_add</i>
+    <h2>Add a Movie:</h2>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Movie Title</mat-label>
+        <input matInput placeholder="Movie Title" value="Movie Title" />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Release Date (DD-MM-YYYY)"
+          value="Release Date"
+        />
+      </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" (click)="saveClicked()">
+      Add
     </button>
     <mat-divider class="push-down"></mat-divider>
     <h1>Actors:</h1>

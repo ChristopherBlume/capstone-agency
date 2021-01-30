@@ -18,6 +18,8 @@ export class AppComponent implements OnInit, OnDestroy{
   authenticated = false;
   loginURL: string;
 
+  movie: Movie;
+
   constructor(private moviesApi: MoviesApiService, public auth: AuthService) {
     this.initializeApp();
   }
@@ -25,6 +27,11 @@ export class AppComponent implements OnInit, OnDestroy{
   initializeApp() {
     this.auth.load_jwts();
     this.auth.check_token_fragment();
+    this.movie = {
+      title: "",
+      release_date: ""    
+    };
+  
   }
 
   loginAuth() {
@@ -46,6 +53,7 @@ export class AppComponent implements OnInit, OnDestroy{
       })
     }
   }
+
   ngOnDestroy(){
     this.moviesListSubs.unsubscribe();
   }

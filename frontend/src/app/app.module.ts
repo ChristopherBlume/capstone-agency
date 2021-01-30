@@ -9,6 +9,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import { AuthService } from './services/auth.service';
+import {MatInputModule} from '@angular/material/input';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { AuthService } from './services/auth.service';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatInputModule,
+    NoopAnimationsModule
   ],
   providers: [MoviesApiService, AuthService],
   bootstrap: [AppComponent]

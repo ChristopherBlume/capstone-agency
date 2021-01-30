@@ -36,4 +36,10 @@ export class MoviesApiService {
       return throwError(error.message)
     }));
   }
+
+  saveMovies(movie: Movie) {
+    this.http.post(`${API_URL}/movies`, movie, this.getHeaders()).pipe(catchError(error => {
+      return throwError(error.message)
+    }));
+  }
 }
