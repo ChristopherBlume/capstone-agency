@@ -1,0 +1,17 @@
+<div *ngIf="!this.auth.can('add:movies') || !this.auth.can('add:actors')">
+  <p>
+    Please log in to enter admin area!
+    <span *ngIf="this.auth.can('get:movies') || this.auth.can('get:actors')"
+      >You are logged in as Casting Agent, please contact your Casting Director
+      or Producer.</span
+    >
+  </p>
+</div>
+<div *ngIf="this.auth.can('add:movies')">
+  <h1>Add a Movie</h1>
+  <ca-movie-form (submitMovie)="createMovie($event)"></ca-movie-form>
+</div>
+<div *ngIf="this.auth.can('add:actors')">
+  <h1>Add an Actor</h1>
+  <ca-actor-form (submitActor)="createActor($event)"></ca-actor-form>
+</div>

@@ -1,0 +1,22 @@
+<form class="ui form" (ngSubmit)="submitForm()" #movieForm="ngForm">
+  <div class="field">
+    <label>Movie Title</label>
+    <input
+      name="title"
+      [(ngModel)]="movie.title"
+      required
+      #titleInput="ngModel"
+    />
+  </div>
+  <div class="field">
+    <label>Release Date</label>
+    <input
+      name="release_date"
+      type="date"
+      [(ngModel)]="movie.release_date"
+      required
+      #dateInput="ngModel"
+    />
+  </div>
+  <button class="ui primary button" type="submit">Save</button>
+</form>

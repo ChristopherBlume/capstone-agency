@@ -1,75 +1,11 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>Capstone Agency</span>
-    <span class="example-spacer"></span>
-    <button mat-button (click)="loginAuth()" *ngIf="!auth.token">
-      Sign In
-    </button>
-    <button mat-button (click)="auth.logout()" *ngIf="auth.token">
-      Sign Out
-    </button>
-  </mat-toolbar-row>
-</mat-toolbar>
-<div class="container">
-  <div *ngIf="!auth.token">
-    <h1 style="text-align: center" class="push-down">
-      Welcome to Capstone Agency! Please Login to enter our Application!
-    </h1>
-  </div>
-  <div *ngIf="auth.token">
-    <h1>Movies:</h1>
-    <div class="movies">
-      <mat-card
-        class="example-card"
-        *ngFor="let movie of moviesList"
-        class="mat-elevation-z5"
-      >
-        <mat-card-content>
-          <mat-card-title>{{ movie.title }}</mat-card-title>
-          <mat-card-subtitle>
-            Release: {{ movie.release_date }}</mat-card-subtitle
-          >
-        </mat-card-content>
-      </mat-card>
-    </div>
-    <h2>Add a Movie:</h2>
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <mat-label>Movie Title</mat-label>
-        <input matInput placeholder="Movie Title" value="Movie Title" />
-      </mat-form-field>
-      <br />
-      <mat-form-field class="example-full-width">
-        <input
-          matInput
-          placeholder="Release Date (DD-MM-YYYY)"
-          value="Release Date"
-        />
-      </mat-form-field>
-    </form>
-    <button mat-raised-button color="primary" (click)="saveClicked()">
-      Add
-    </button>
-    <mat-divider class="push-down"></mat-divider>
-    <h1>Actors:</h1>
-    <div class="movies">
-      <mat-card
-        class="example-card"
-        *ngFor="let actor of actorsList"
-        class="mat-elevation-z5"
-      >
-        <mat-card-content>
-          <mat-card-title>{{ actor.name }}</mat-card-title>
-          <mat-card-subtitle>Age: {{ actor.age }}</mat-card-subtitle>
-          <p>Gender: {{ actor.gender }}</p>
-        </mat-card-content>
-      </mat-card>
-      <button mat-fab color="primary" *ngIf="auth.token" class="new">
-        <i class="material-icons">note_add</i>
-      </button>
-    </div>
-    <mat-divider class="push-down"></mat-divider>
-    <!-- <label>Your Active JWT:</label>
-    <div>{{ auth.activeJWT() }}</div> -->
+<div class="ui menu">
+  <a routerLink="home" routerLinkActive="active" class="item">Home</a>
+  <a routerLink="movies" routerLinkActive="active" class="item">Movies</a>
+  <a routerLink="actors" routerLinkActive="active" class="item">Actors</a>
+  <a routerLink="admin" routerLinkActive="active" class="item">Admin Area</a>
+  <div class="right menu">
+    <a class="ui item" (click)="loginAuth()" *ngIf="!auth.token">Sign In</a>
+    <a class="ui item" (click)="auth.logout()" *ngIf="auth.token">Sign Out</a>
   </div>
 </div>
+<router-outlet></router-outlet>

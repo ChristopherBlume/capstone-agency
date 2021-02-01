@@ -1,61 +1,27 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import {Subscription} from 'rxjs';
-import {MoviesApiService} from './services/movies-api.service';
-import {Movie} from './models/movie.model';
-import {Actor} from './models/actor.model';
+import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
-
+import {MovieStoreService} from '../app/services/movie-store.service'
 @Component({
-  selector: 'app-root',
+  selector: 'ca-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy{
-  title = 'app';
-  moviesListSubs: Subscription;
-  moviesList: Movie[];
-  actorsList: Actor[];
-  authenticated = false;
+export class AppComponent {
   loginURL: string;
 
-  movie: Movie;
-
-  constructor(private moviesApi: MoviesApiService, public auth: AuthService) {
+  constructor(private ms: MovieStoreService, public auth: AuthService) {
     this.initializeApp();
   }
 
   initializeApp() {
     this.auth.load_jwts();
-    this.auth.check_token_fragment();
-    this.movie = {
-      title: "",
-      release_date: ""    
-    };
-  
+    this.auth.check_token_fragment();  
   }
-
+  
   loginAuth() {
     this.loginURL = this.auth.build_login_link();
     window.location.href=this.loginURL;
   }
 
-  ngOnInit() {
-    if(this.auth.can('get:movies')) {
-      let oberservable = this.moviesApi.getMovies();
-      oberservable.subscribe((data:any) => {
-        this.moviesList = data.movies;
-      })
-    }
-    if(this.auth.can('get:actors')) {
-      let observable = this.moviesApi.getActors();
-      observable.subscribe((data:any) => {
-        this.actorsList = data.actors;
-      })
-    }
-  }
-
-  ngOnDestroy(){
-    this.moviesListSubs.unsubscribe();
-  }
 
 }

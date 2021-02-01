@@ -1,0 +1,10 @@
+<div *ngIf="!this.auth.can('get:actors')">
+  <p>Please log in to see our actors!</p>
+</div>
+<div class="ui three column grid push-down">
+  <ca-actor-item
+    class="item ui card column segment push-down"
+    *ngFor="let actor of actors"
+    [actor]="actor"
+  ></ca-actor-item>
+</div>

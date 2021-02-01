@@ -40,6 +40,15 @@ def create_app(test_config=None):
             'movies': [movie.format() for movie in movies]
         }), 200
 
+    @app.route('/movies/<int:movie_id>')
+    @requires_auth('get:movies')
+    def show_movie(payload, movie_id):
+        movie = Movie.query.get(movie_id)
+        return jsonify({
+            'success': True,
+            'movie': movie.format()
+        })
+
     # POST A NEW MOVIE
     @app.route('/movies', methods=['POST'])
     @requires_auth('add:movies')
