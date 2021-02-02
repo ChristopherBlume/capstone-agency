@@ -11,6 +11,7 @@
   <h1>Add a Movie</h1>
   <ca-movie-form (submitMovie)="createMovie($event)"></ca-movie-form>
 </div>
+<div class="ui divider"></div>
 <div *ngIf="this.auth.can('add:actors')">
   <h1>Add an Actor</h1>
   <ca-actor-form (submitActor)="createActor($event)"></ca-actor-form>

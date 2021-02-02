@@ -1,0 +1,17 @@
+<div *ngIf="actor">
+  <h1>{{ actor.name }}</h1>
+  <div>ID: {{ actor.id }}</div>
+  <div class="ui divider"></div>
+  <p>Age: {{ actor.age }}</p>
+  <div class="ui divider"></div>
+  <p>Gender: {{ actor.gender }}</p>
+  <div>
+    <button
+      (click)="removeActor()"
+      class="ui primary button"
+      routerLink="/actors"
+    >
+      Delete
+    </button>
+  </div>
+</div>

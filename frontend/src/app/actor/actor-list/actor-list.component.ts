@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Actor} from '../shared/actor';
-import {ActorStoreService} from '../services/actor-store.service';
-import {AuthService} from '../services/auth.service';
+import {Actor} from '../../shared/actor';
+import {ActorStoreService} from '../../services/actor-store.service';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'ca-actor-list',

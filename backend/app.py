@@ -40,6 +40,7 @@ def create_app(test_config=None):
             'movies': [movie.format() for movie in movies]
         }), 200
 
+    # GET SINGLE MOVIE
     @app.route('/movies/<int:movie_id>')
     @requires_auth('get:movies')
     def show_movie(payload, movie_id):
@@ -130,6 +131,16 @@ def create_app(test_config=None):
             'success': True,
             'actors': [actor.format() for actor in actors]
         }), 200
+
+    # GET SINGLE ACTOR
+    @app.route('/actors/<int:actor_id>')
+    @requires_auth('get:actors')
+    def show_actor(payload, actor_id):
+        actor = Actor.query.get(actor_id)
+        return jsonify({
+            'success': True,
+            'actor': actor.format()
+        })
 
     # POST NEW ACTORS
     @app.route('/actors', methods=['POST'])

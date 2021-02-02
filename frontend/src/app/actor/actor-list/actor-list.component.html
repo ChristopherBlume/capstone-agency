@@ -6,5 +6,6 @@
     class="item ui card column segment push-down"
     *ngFor="let actor of actors"
     [actor]="actor"
+    [routerLink]="actor.id"
   ></ca-actor-item>
 </div>

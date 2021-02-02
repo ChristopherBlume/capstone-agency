@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Movie} from '../shared/movie';
-import {MovieStoreService} from '../services/movie-store.service';
-import {AuthService} from '../services/auth.service';
+import {Movie} from '../../shared/movie';
+import {MovieStoreService} from '../../services/movie-store.service';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'ca-movie-list',

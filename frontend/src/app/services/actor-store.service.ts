@@ -36,5 +36,18 @@ export class ActorStoreService {
       return throwError(error.message)
     }));
   }
+
+  public remove(actor: Actor): Observable<any> {
+    return this.http.delete(`${API_URL}/actors/${actor.id}`, this.getHeaders()).pipe(catchError(error => {
+      return throwError(error.message)
+    }));
+  }
+
+  public getSingle(id: any): Observable<Actor> {
+    return this.http.get<Actor>(`${API_URL}/actors/${id}`, this.getHeaders()).pipe(catchError(error => {
+      return throwError(error.message)
+    }))
+  }
+
 }
 

@@ -11,8 +11,8 @@ import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'ca-create-movie',
-  templateUrl: './create-movie.component.html',
-  styleUrls: ['./create-movie.component.css']
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.css']
 })
 export class CreateMovieComponent implements OnInit {
 

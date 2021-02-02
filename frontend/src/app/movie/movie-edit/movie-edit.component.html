@@ -1,0 +1,23 @@
+<h1>Update Movie: {{ movie.title }}</h1>
+<form class="ui form">
+  <div class="field">
+    <label>Movie Title</label>
+    <input
+      name="title"
+      [(ngModel)]="movie.title"
+      required
+      #titleInput="ngModel"
+    />
+  </div>
+  <div class="field">
+    <label>Release Date</label>
+    <input
+      name="release_date"
+      type="date"
+      [(ngModel)]="movie.release_date"
+      required
+      #dateInput="ngModel"
+    />
+  </div>
+  <button class="ui primary button" (click)="updateMovie($event)">Save</button>
+</form>

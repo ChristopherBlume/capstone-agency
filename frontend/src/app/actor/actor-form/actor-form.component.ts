@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import {Actor} from '../shared/actor';
+import {Actor} from '../../shared/actor';
 
 @Component({
   selector: 'ca-actor-form',
@@ -11,6 +11,7 @@ import {Actor} from '../shared/actor';
 export class ActorFormComponent implements OnInit {
 
   actor = {
+    id: null,
     name: '',
     age: undefined,
     gender: ''

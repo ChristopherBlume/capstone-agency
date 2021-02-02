@@ -49,5 +49,13 @@ export class MovieStoreService {
     }))
   }
 
+  public update(movie: Movie): Observable<any> {
+    console.log(movie.title);
+    return this.http.patch(`${API_URL}/movies/${movie.id}`, movie, this.getHeaders()).pipe(catchError(error => {
+      return throwError(error.message)
+    })
+    )
+  }
+
 
 }
