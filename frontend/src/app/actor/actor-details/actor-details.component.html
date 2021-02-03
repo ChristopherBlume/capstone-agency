@@ -5,13 +5,19 @@
   <p>Age: {{ actor.age }}</p>
   <div class="ui divider"></div>
   <p>Gender: {{ actor.gender }}</p>
-  <div>
+  <div *ngIf="this.auth.can('delete:actor')">
     <button
       (click)="removeActor()"
       class="ui primary button"
       routerLink="/actors"
     >
       Delete
+    </button>
+    <button
+      class="ui button"
+      [routerLink]="['../../admin/edit/actors', actor.id]"
+    >
+      Update
     </button>
   </div>
 </div>

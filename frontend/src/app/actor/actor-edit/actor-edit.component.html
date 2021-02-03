@@ -1,0 +1,32 @@
+<h1>Update Actor: {{ actor.name }}</h1>
+<form class="ui form">
+  <div class="field">
+    <label>Actor Name</label>
+    <input
+      name="name"
+      [(ngModel)]="actor.name"
+      required
+      #titleInput="ngModel"
+    />
+  </div>
+  <div class="field">
+    <label>Age</label>
+    <input
+      name="age"
+      type="number"
+      [(ngModel)]="actor.age"
+      required
+      #numberInput="ngModel"
+    />
+  </div>
+  <div class="field">
+    <label>Gender</label>
+    <input
+      name="gender"
+      [(ngModel)]="actor.gender"
+      required
+      #titleInput="ngModel"
+    />
+  </div>
+  <button class="ui primary button" (click)="updateActor($event)">Save</button>
+</form>

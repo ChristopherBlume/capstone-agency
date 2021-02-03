@@ -49,5 +49,13 @@ export class ActorStoreService {
     }))
   }
 
+  public update(actor: Actor): Observable<any> {
+    console.log(actor.name);
+    return this.http.patch(`${API_URL}/actors/${actor.id}`, actor, this.getHeaders()).pipe(catchError(error => {
+      return throwError(error.message)
+    })
+    )
+  }
+
 }
 

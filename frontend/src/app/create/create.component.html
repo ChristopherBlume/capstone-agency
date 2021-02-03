@@ -1,10 +1,13 @@
-<div *ngIf="!this.auth.can('add:movies') || !this.auth.can('add:actors')">
+<div *ngIf="!this.auth.can('add:actors')">
   <p>
-    Please log in to enter admin area!
-    <span *ngIf="this.auth.can('get:movies') || this.auth.can('get:actors')"
-      >You are logged in as Casting Agent, please contact your Casting Director
-      or Producer.</span
-    >
+    You do not have permissions to add any information to our database. Please
+    contact your Casting Director or Executive Producer.
+  </p>
+</div>
+<div *ngIf="this.auth.can('add:actors') && !this.auth.can('add:movies')">
+  <p>
+    You do not have permissions to add <strong>movies</strong> to our database.
+    Please contact your Executive Producer.
   </p>
 </div>
 <div *ngIf="this.auth.can('add:movies')">

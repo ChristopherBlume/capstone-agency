@@ -8,6 +8,7 @@ import { CreateMovieComponent } from './create/create.component';
 import { MovieDetailsComponent } from './movie/movie-details/movie-details.component';
 import { ActorDetailsComponent } from './actor/actor-details/actor-details.component';
 import { MovieEditComponent } from './movie/movie-edit/movie-edit.component';
+import { ActorEditComponent } from './actor/actor-edit/actor-edit.component';
 
 const routes: Routes = [
   {
@@ -38,6 +39,10 @@ const routes: Routes = [
   {
     path: 'admin/edit/:id',
     component: MovieEditComponent
+  },
+  {
+    path: 'admin/edit/actors/:id',
+    component: ActorEditComponent
   },
   {
     path: 'admin',

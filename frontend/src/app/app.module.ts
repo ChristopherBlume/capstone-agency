@@ -16,6 +16,7 @@ import { ActorFormComponent } from './actor/actor-form/actor-form.component';
 import { MovieDetailsComponent } from './movie/movie-details/movie-details.component';
 import { ActorDetailsComponent } from './actor/actor-details/actor-details.component';
 import { MovieEditComponent } from './movie/movie-edit/movie-edit.component';
+import { ActorEditComponent } from './actor/actor-edit/actor-edit.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MovieEditComponent } from './movie/movie-edit/movie-edit.component';
     ActorFormComponent,
     MovieDetailsComponent,
     ActorDetailsComponent,
-    MovieEditComponent
+    MovieEditComponent,
+    ActorEditComponent
   ],
   imports: [
     BrowserModule,
