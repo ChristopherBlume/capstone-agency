@@ -5,7 +5,7 @@
   <h4>Release Date</h4>
   <p>{{ movie.release_date }}</p>
   <div class="ui divider"></div>
-  <div *ngIf="this.auth.can('delete:movies')">
+  <div *ngIf="this.auth.can('delete:movie')">
     <button
       (click)="removeMovie()"
       class="ui primary button"
