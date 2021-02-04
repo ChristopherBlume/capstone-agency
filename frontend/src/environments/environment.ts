@@ -2,15 +2,16 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const API_URL = 'https://cap-agent-backend.herokuapp.com/';
+// export const API_URL = 'https://cap-agent-backend.herokuapp.com/';
 
 export const environment = {
   production: false,
+  baseUrl: 'http://localhost:5000',
   auth0: {
     url: 'capstone-agency.eu', // the auth0 domain prefix
     audience: 'http://localhost:5000', // the audience set for the auth0 app
     clientId: 'cS4oMOvh2bJBdM1i4owjsJVoTqOHHd7C', // the client id generated for the auth0 app
-    callbackURL: 'https://cap-agent-frontend.herokuapp.com/', // the base url of the running ionic application. 
+    callbackURL: 'http://localhost:5000', // the base url of the running ionic application. 
   }
 };
 
