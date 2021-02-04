@@ -4,12 +4,14 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import {Movie} from '../shared/movie';
 import {AuthService} from './auth.service';
-import { API_URL } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieStoreService {
+
+  baseUrl = environment.baseUrl;
   
   constructor(private http: HttpClient, private auth: AuthService) { }
 
@@ -26,32 +28,32 @@ export class MovieStoreService {
   }
 
   getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(`${API_URL}/movies`, this.getHeaders()).pipe(catchError(error => {
+    return this.http.get<Movie[]>(`${this.baseUrl}/movies`, this.getHeaders()).pipe(catchError(error => {
       return throwError(error.message)
     }));
   }
 
   public create(movie: Movie): Observable<any> {
-    return this.http.post(`${API_URL}/movies`, movie, this.getHeaders()).pipe(catchError(error => {
+    return this.http.post(`${this.baseUrl}/movies`, movie, this.getHeaders()).pipe(catchError(error => {
       return throwError(error.message)
     }));
   }
 
   public remove(movie: Movie): Observable<any> {
-    return this.http.delete(`${API_URL}/movies/${movie.id}`, this.getHeaders()).pipe(catchError(error => {
+    return this.http.delete(`${this.baseUrl}/movies/${movie.id}`, this.getHeaders()).pipe(catchError(error => {
       return throwError(error.message)
     }));
   }
 
   public getSingle(id: any): Observable<Movie> {
-    return this.http.get<Movie>(`${API_URL}/movies/${id}`, this.getHeaders()).pipe(catchError(error => {
+    return this.http.get<Movie>(`${this.baseUrl}/movies/${id}`, this.getHeaders()).pipe(catchError(error => {
       return throwError(error.message)
     }))
   }
 
   public update(movie: Movie): Observable<any> {
     console.log(movie.title);
-    return this.http.patch(`${API_URL}/movies/${movie.id}`, movie, this.getHeaders()).pipe(catchError(error => {
+    return this.http.patch(`${this.baseUrl}/movies/${movie.id}`, movie, this.getHeaders()).pipe(catchError(error => {
       return throwError(error.message)
     })
     )
