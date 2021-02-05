@@ -46,6 +46,7 @@ class CapstoneTestCase(unittest.TestCase):
     }
 
     self.movie = {
+      "id": 3000,
       "title": "Avengers 3",
       "release_date": "01-09-2016"
     }
@@ -174,7 +175,7 @@ class CapstoneTestCase(unittest.TestCase):
   # """
   #   Test Case: DELETE - /actors - 500
   # """
-  def test_delete_404_actors_casting_directory(self):
+  def test_delete_404_actors_casting_director(self):
     res = self.client().delete('actors/105645665', headers=self.director_header)
     self.assertEqual(res.status_code, 500)
 
