@@ -2,7 +2,7 @@
 
 Welcome to the Capstone Agency! This Application is a result of the Udacity Fullstack Developer Nanodegree.
 
-The Application consits of a backend, which was created using Python, Flask and SQLAlchmey. The Frontend is build with Angular and Semantic UI. Before you can use the application, make sure to set up your environment correctly. See Sections "Backend" and "Frontend".
+The Application consits of a backend, which was created using Python, Flask and SQLAlchmey. The Frontend is build with Angular and Semantic UI. Before you can use the application locally, make sure to set up your environment correctly. See Sections "Backend" and "Frontend".
 
 Under "Accounts to access Application" you will find three users assigned with different roles/authorizations. The login credentials can be used to access the System.
 
