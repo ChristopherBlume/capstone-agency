@@ -11,7 +11,7 @@ Under "Accounts to access Application" you will find three users assigned with d
 Link to Application:
 https://cap-agent-frontend.herokuapp.com/
 
-On the right sight you can sign in using one of the above credentials.
+On the right sight you can sign in using one of the below credentials.
 It should be already one movie and one actor in the database. In the Admin Area you can either post a movie or an actor (depends on authorization).
 
 While in /movies or /actors you can simple click on a movie to see the "details". There you can delete or update a movie or actor (again depending on the auhtorization).
